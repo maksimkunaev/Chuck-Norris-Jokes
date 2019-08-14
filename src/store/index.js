@@ -16,6 +16,9 @@ function changeData(state = initialState.data, action) {
 
         case 'addJoke_async_failed':
             return state;
+
+        case 'setListInit':
+            return { ...state, list: action.data };
     }
     return state;
 }

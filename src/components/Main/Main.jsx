@@ -3,9 +3,29 @@ import container from "components/container";
 import styles from './Main.styl';
 
 function WaitingBlock(props) {
-    return <div className={styles.waiting} style={{display: props.status === 'fetching' ? 'block' : 'none'}}>Wait...</div>
+    const { status } = props;
+    const isVisible = status === 'fetching' || status === 'error';
+    let text = '';
+
+    if (status === 'fetching') {
+        text = 'Wait...';
+    } else if (status === 'error') {
+        text= 'Error';
+    } else {
+        text = '';
+    }
+    return <div
+        className={styles.waiting}
+        style={{display: isVisible ? 'block' : 'none'}}
+    >
+        {text}
+    </div>
 }
 class Main extends PureComponent {
+    componentDidMount() {
+        this.props.setList()
+    }
+
     addJoke = () => {
         const { addJoke } = this.props;
         addJoke()
@@ -13,10 +33,11 @@ class Main extends PureComponent {
 
     render() {
         const { data: { list }, status } = this.props;
+        // console.log(`this.props.data.list`, this.props)
         return (
             <main>
                 <div className={styles.wrap}>
-                <button type="button" className={styles.more} onClick={this.addJoke}>More!!!!</button>
+                    <button type="button" className={styles.more} onClick={this.addJoke}>More!!!!</button>
                     {list.map(data=><div className={styles.block} key={data.id}>{data.value}</div>)}
                     <WaitingBlock status={status}/>
                 </div>

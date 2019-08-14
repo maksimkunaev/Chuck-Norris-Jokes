@@ -7,6 +7,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  setList: () => {
+    dispatch({
+      type: 'setList',
+    });
+  },
   addJoke: () => {
     dispatch({
       type: 'addJoke',

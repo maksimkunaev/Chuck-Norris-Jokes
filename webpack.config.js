@@ -26,23 +26,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.less$/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            modifyVars: {
-                                'primary-color': '#000',
-                                'link-color': '#000',
-                                'border-radius-base': '2px',
-                            },
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.(js|jsx)/,
                 exclude: /node_modules/,
                 use: [

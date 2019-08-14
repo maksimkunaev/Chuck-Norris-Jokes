@@ -11,6 +11,7 @@ function* fetchJoke(action) {
     } catch (e) {
         yield put({ type: "addJoke_async_failed", message: e.message});
         yield put({ type: "status_error" });
+        console.log(e)
     }
 }
 
