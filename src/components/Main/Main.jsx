@@ -52,7 +52,7 @@ class Main extends PureComponent {
             <div className={styles.wrap} ref={node => this.wrap = node}>
                 <div className={styles.content}>
                     <button type="button" className={styles.more} onClick={this.addJoke}>More!!!!</button>
-                    {list.map(data=><div className={styles.block} key={data.id}>{data.value}</div>)}
+                    {list.map((data, index)=><div className={styles.block} key={data.id + index}>{data.value}</div>)}
                     <WaitingBlock status={status}/>
                 </div>
             </div>
