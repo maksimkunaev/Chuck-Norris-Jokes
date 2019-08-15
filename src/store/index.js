@@ -9,28 +9,34 @@ const initialState = {
 
 function changeData(state = initialState.data, action) {
     switch (action.type) {
-        case 'addJoke_async_success':
+        case 'addJoke_async_success': {
             const newList = state.list.slice();
             newList.push(action.data.joke);
             return { ...state, list: newList };
+        }
 
-        case 'addJoke_async_failed':
+        case 'addJoke_async_failed': {
             return state;
+        }
 
-        case 'setListInit':
+        case 'setListInit': {
             return { ...state, list: action.data };
+        }
     }
     return state;
 }
 
 function changeStatus(state = initialState.status, action) {
     switch (action.type) {
-        case 'status_fetching':
+        case 'status_fetching': {
             return "fetching";
-        case 'status_success':
+        }
+        case 'status_success': {
             return 'success';
-        case 'status_error':
+        }
+        case 'status_error': {
             return 'error';
+        }
     }
     return state;
 }
