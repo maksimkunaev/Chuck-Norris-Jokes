@@ -15,11 +15,11 @@ module.exports = {
     devtool: 'source-map',
     entry: ['babel-polyfill', './src/index.js'],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '/'),
         filename: 'main.js',
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, '/'),
         compress: true,
         port: 3000,
     },
