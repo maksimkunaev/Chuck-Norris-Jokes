@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import container from "components/container";
+import container from "../container";
 import styles from './Main.styl';
 
 const statusMessage = {
@@ -40,7 +40,7 @@ class Main extends PureComponent {
     scrollBottom = () => {
         const { wrap } = this;
         if (wrap) {
-            setImmediate(() => {
+            setTimeout(() => {
                 wrap.scrollTo(0,Math.pow(10,10));
             })
         }
