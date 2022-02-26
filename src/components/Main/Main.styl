@@ -10,6 +10,24 @@ block() {
   word-break break-word
 }
 
+.wrap {
+  margin 0 auto
+  width 100%
+  height 100%
+  max-width 100%
+  overflow-y auto
+}
+
+.content {
+  display flex
+  flex-wrap wrap
+  align-items flex-start
+
+  @media screen and (max-width 600px) {
+    justify-content center
+  }
+}
+
 .block {
   block()
 }
@@ -44,22 +62,3 @@ block() {
   padding 40px
   margin-left 105px
 }
-
-.wrap {
-  margin 0 auto
-  width 100%
-  height 100%
-  max-width 100%
-  overflow-y auto
-}
-
-.content {
-  display flex
-  flex-wrap wrap
-  align-items flex-start
-
-  @media screen and (max-width 600px) {
-    justify-content center
-  }
-}
-
